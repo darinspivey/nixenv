@@ -1,21 +1,24 @@
-install: clean symlinks vundle bundles
+VIMRC			= ${HOME}/TEST.vimrc
+VIMDIR			= ${HOME}/TEST.vim
+TMUXCONF 		= ${HOME}/.tmux.conf
+TMUXDIR			= ${HOME}/.tmux
+GITAWAREDIR 	= ${HOME}/TEST.git-aware-prompt
 
+myvim:
+	ln -s ${PWD}/vim/vimrc ${VIMRC}
+	tar xvf ${PWD}/vim/myVimDir.tar -C ${VIMDIR}
+
+mytmux:
+	git clone https://github.com/tmux-plugins/tpm ${TMUXDIR}/plugins/tpm
+	ln -s ${PWD}/tmux/tmux.conf ${TMUXCONF}
+	${TMUXDIR}/plugins/tpm/bin/install_plugins
+
+mygitaware:
+
+    
 clean:
-    rm -rf ${PWD}/.vim/bundle/*
-    rm -rf ~/.vim
-    rm -rf ~/.vimrc
+	rm -rf ${VIMRC} ${VIMDIR} ${TMUXCONF} ${TMUXDIR} ${GITAWAREDIR}
 
-vundle:
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+install: clean myvim mytmux mygitaware
 
-symlinks:
-    ln -s ${PWD}/.vim ~/.vim
-    ln -s ${PWD}/.vimrc ~/.vimrc
-
-bundles:
-    vim +BundleInstall! +qall
-
-bundles-clean:
-    rm -rf ${PWD}/.vim/bundle/*
-    make vundle
-    make bundles
+all: install

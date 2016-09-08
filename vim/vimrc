@@ -19,9 +19,17 @@ set nohlsearch
 "vim will search for text as you enter it; press enter after search finds what you want
 "set incsearch
 
-set tabstop=2
-set shiftwidth=2
-set expandtab
+let _curfile = expand("%:t")
+if _curfile =~ "Makefile" || _curfile =~ "makefile" || _curfile =~ ".*\.mk"
+  set noexpandtab
+  set tabstop=4
+  set shiftwidth=4
+else
+  set expandtab
+  set tabstop=2
+  set shiftwidth=2
+endif
+
 "indent/outdent to nearest tabstop
 "set shiftround
 set backspace=indent,eol,start
