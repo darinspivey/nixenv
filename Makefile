@@ -1,15 +1,20 @@
-VIMRC			= ${HOME}/TEST.vimrc
-VIMDIR			= ${HOME}/TEST.vim
-TMUXCONF 		= ${HOME}/.tmux.conf
-TMUXDIR			= ${HOME}/.tmux
-GITAWAREDIR 	= ${HOME}/TEST.git-aware-prompt
+BASEDIR			= ${HOME}/bin/testing/git
+
+VIMRC			= ${BASEDIR}/.vimrc
+VIMDIR			= ${BASEDIR}/.vim
+VIMRCBACKUP		= $$(dirname $(VIMRC))/$$(basename $(VIMRC)).ORIG
+TMUXCONF 		= ${BASEDIR}/.tmux.conf
+TMUXDIR			= ${BASEDIR}/.tmux
+GITAWAREDIR 	= ${BASEDIR}/.git-aware-prompt
 
 isEnvSet 		= $(shell bash -lc 'if [ -z $${GITAWAREPROMPT+x} ]; then echo "unset"; else echo $$GITAWAREPROMPT; fi')
 
+.ONESHELL:
 myvim: cleanMyVim
 	ln -s ${PWD}/vim/vimrc ${VIMRC}
+	if [ ! -d $(VIMDIR) ]; then mkdir -p $(VIMDIR); fi
 	@echo "Unpacking myVimDir..."
-	@tar xvf ${PWD}/vim/myVimDir.tar -C ${VIMDIR}
+	tar xvf ${PWD}/vim/myVimDir.tar -C ${VIMDIR}
 
 mytmux: cleanMyTmux cloneTmux
 	ln -s ${PWD}/tmux/tmux.conf ${TMUXCONF}
@@ -18,10 +23,10 @@ mytmux: cleanMyTmux cloneTmux
 mygitaware: cleanGitAware cloneGitAware
 
 ifeq ($(isEnvSet),"unset")
-	@echo "\n*** nixenv Makefile additions ***" >> $(HOME)/.bash_profile
-	@echo "GITAWAREPROMPT=$(GITAWAREDIR)" >> $(HOME)/.bash_profile
-	@echo "source $$GITAWAREPROMPT/main.sh" >> $(HOME)/.bash_profile
-	@echo 'export PS1="\u@\h \w \[$$txtcyn\]\$$git_branch\[$$txtred\]\$$git_dirty\[$$txtrst\]\$$ "' >> $(HOME)/.bash_profile
+	@echo "\n*** nixenv Makefile additions ***" >> $(BASEDIR)/.bash_profile
+	@echo "GITAWAREPROMPT=$(GITAWAREDIR)" >> $(BASEDIR)/.bash_profile
+	@echo "source $$GITAWAREPROMPT/Tmain.sh" >> $(BASEDIR)/.bash_profile
+	@echo 'export PS1="\u@\h \w \[$$txtcyn\]\$$git_branch\[$$txtred\]\$$git_dirty\[$$txtrst\]\$$ "' >> $(BASEDIR)/.bash_profile
 else
 	@echo Skipping .bashrc modification for git-aware-prompt.  Environment already set: $(isEnvSet)
 endif
@@ -32,23 +37,21 @@ cloneGitAware:
 
 cloneTmux:
 	@echo "Installing tpm plugin for tmux..."
-	@git clone https://github.com/tmux-plugins/tpm ${TMUXDIR}/plugins/tpm
+	git clone https://github.com/tmux-plugins/tpm ${TMUXDIR}/plugins/tpm
     
 cleanGitAware: FORCE
-	@rm -rf ${GITAWAREDIR}
+	rm -rf ${GITAWAREDIR}
 
 cleanMyTmux: FORCE
-	@rm -rf ${TMUXCONF} ${TMUXDIR}
+	rm -rf ${TMUXCONF} ${TMUXDIR}
 
 cleanMyVim: FORCE
-	@if [ -f $(VIMRC) ]; then cp $(VIMRC) $$(dirname $(VIMRC))/ORIG.$$(basename $(VIMRC)); fi
-	@rm -rf ${VIMRC} ${VIMDIR}
-
-darin:
+	@if [[ -f $(VIMRC) && ! -f $(VIMRCBACKUP) ]]; then cp $(VIMRC) $(VIMRCBACKUP) && echo \* Backed up $$(basename $(VIMRC)) to $(VIMRCBACKUP); fi
+	rm -rf ${VIMRC} ${VIMDIR}
 
 clean: FORCE cleanGitAware cleanMyTmux cleanMyVim
 
-install: clean myvim mytmux mygitaware
+install: myvim mytmux mygitaware
 
 all: install
 
