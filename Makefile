@@ -1,4 +1,4 @@
-BASEDIR			= ${HOME}/bin/testing/git
+BASEDIR			= ${HOME}
 
 VIMRC			= ${BASEDIR}/.vimrc
 VIMDIR			= ${BASEDIR}/.vim
