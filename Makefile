@@ -23,7 +23,7 @@ mytmux: cleanMyTmux cloneTmux
 mygitaware: cleanGitAware cloneGitAware
 
 ifeq ($(isEnvSet),unset)
-	@echo "\n*** nixenv Makefile additions ***" >> $(BASEDIR)/.bash_profile
+	@echo "\n# *** nixenv Makefile additions ***" >> $(BASEDIR)/.bash_profile
 	@echo "export GITAWAREPROMPT=$(GITAWAREDIR)" >> $(BASEDIR)/.bash_profile
 	@echo "source \$$GITAWAREPROMPT/main.sh" >> $(BASEDIR)/.bash_profile
 	@echo 'export PS1="\u@\h \w \[$$txtcyn\]\$$git_branch\[$$txtred\]\$$git_dirty\[$$txtrst\]\$$ "' >> $(BASEDIR)/.bash_profile
