@@ -1,4 +1,33 @@
-"This setting prevents vim from emulating the original vi's bugs and limitations whatever those bugs might be
+set list listchars=tab:»-,trail:·,extends:»,precedes:«
+
+:let mapleader=","
+
+" Highlight anything past 80 columns
+nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
+hi OverLength ctermbg=none cterm=none
+match OverLength /\%>80v/
+fun! s:LongLineHLToggle(silent)
+ let isSilent=a:silent
+ if !exists('w:longlinehl')
+  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
+  if (isSilent != 0)
+    echo "Long lines highlighted"
+  endif
+ else
+  call matchdelete(w:longlinehl)
+  unl w:longlinehl
+  if (isSilent != 0)
+    echo "Long lines unhighlighted"
+  endif
+ endif
+endfunction
+
+call s:LongLineHLToggle(0)
+
+"execute pathogen#infect()
+
+"let g:indentLine_char = '|'
+
 syntax on
 set term=ansi
 set nocompatible
