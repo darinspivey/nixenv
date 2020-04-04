@@ -1,0 +1,78 @@
+"*":
+  "atom-easy-jsdoc":
+    useReturns: true
+  "atom-ide-ui":
+    "atom-ide-datatip": {}
+    "atom-ide-diagnostics-ui": {}
+    hyperclick:
+      darwinTriggerKeys: "ctrlKey"
+    use: {}
+  "color-tabs":
+    borderSize: 1
+  core:
+    disabledPackages: [
+      "highlight-column"
+      "autocomplete-plus"
+      "highlight-line"
+      "color-tabs"
+      "linter"
+    ]
+    projectHome: "/Users/dspivey/gitlab"
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "ax-monokai-syntax"
+    ]
+  docblockr:
+    param_description: false
+    return_tag: "@returns"
+    spacer_between_sections: "after_description"
+  editor:
+    fontSize: 15
+  "exception-reporting":
+    userId: "3756551c-5e83-aa75-14f2-69829ffeb8b0"
+  "git-blame":
+    columnWidth: 371
+  "ide-typescript":
+    autocompleteResultsFirst: false
+    diagnosticsEnabled: false
+  "jscs-fixer":
+    babel: true
+    defaultPreset: "node-style-guide"
+    notifications: false
+  jsformat:
+    comma_first: true
+    format_on_save: false
+    keep_array_indentation: true
+    keep_function_indentation: true
+  linter: {}
+  "linter-eslint":
+    autofix: {}
+    disabling:
+      rulesToSilenceWhileTyping: [
+        "no-trailing-spaces"
+        "no-unused-vars"
+      ]
+    global: {}
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "toggle-quotes":
+    quoteCharacters: "\"'` "
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ensureSingleTrailingNewline: false
+    ignoreWhitespaceOnCurrentLine: false
+  "wrap-guide": {}
+".js.source":
+  editor:
+    preferredLineLength: 85
+  "wrap-guide":
+    columns: [
+      85
+    ]

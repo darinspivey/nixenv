@@ -1,0 +1,16 @@
+atom-ide-ui@0.13.0
+docblockr@0.13.7
+file-icons@2.1.40
+highlight-selected@0.17.0
+ide-typescript@0.9.1
+indent-guide-improved@1.4.13
+inline-git-diff@2.4.0
+linter@2.3.1
+linter-eslint@8.5.5
+minimap@4.29.9
+minimap-find-and-replace@4.5.2
+minimap-highlight-selected@4.6.1
+multi-cursor@3.0.0
+single-click-open@0.2.2
+toggle-quotes@1.1.4
+
