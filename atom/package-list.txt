@@ -1,6 +1,7 @@
 atom-ide-ui@0.13.0
 docblockr@0.13.7
 file-icons@2.1.40
+git-blame@1.8.0
 highlight-selected@0.17.0
 ide-typescript@0.9.1
 indent-guide-improved@1.4.13
