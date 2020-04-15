@@ -1,0 +1,19 @@
+[core]
+	excludesfile = /Users/dspivey/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	c = commit
+	s = status
+	pm = pull -r origin master
+	pu = pull -r upstream master
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	st = status -sb
+	fup = log --since '1 day ago' --oneline --author "darin.spivey@logdna.com"
+	br = checkout -b
+	dc = diff --cached
+	lastchange = log -p --follow -n 1
