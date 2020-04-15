@@ -24,6 +24,8 @@
       "one-dark-ui"
       "ax-monokai-syntax"
     ]
+  "custom-title":
+    template: "<%= fileName %><% if (projectPath) { %> - <%= projectPath %><% } %> - Atom <%= atom.getVersion() %>"
   docblockr:
     param_description: false
     return_tag: "@returns"
