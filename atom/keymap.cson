@@ -33,3 +33,5 @@
 'body':
   'shift-right': 'pane:show-next-item'
   'shift-left': 'pane:show-previous-item'
+'.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
+  'ctrl-shift-Q': ''

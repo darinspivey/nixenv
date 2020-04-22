@@ -16,7 +16,6 @@
       "highlight-line"
       "color-tabs"
       "linter"
-      "linter-eslint"
     ]
     projectHome: "/Users/dspivey/gitlab"
     telemetryConsent: "no"
@@ -31,7 +30,7 @@
     return_tag: "@returns"
     spacer_between_sections: "after_description"
   editor:
-    fontSize: 15
+    tabType: "soft"
   "exception-reporting":
     userId: "3756551c-5e83-aa75-14f2-69829ffeb8b0"
   "git-blame":
