@@ -16,6 +16,7 @@
       "highlight-line"
       "color-tabs"
       "linter"
+      "github"
     ]
     projectHome: "/Users/dspivey/gitlab"
     telemetryConsent: "no"
