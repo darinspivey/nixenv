@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ln -fs $HOME/nixenv/tap/taprc.cmd && \
+   ln -s $HOME/nixenv/tap/taprc-save.cmd && \
+   ln -s $HOME/nixenv/tap/taprc-cov.cmd;
