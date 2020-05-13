@@ -17,3 +17,4 @@ chsh -s /usr/local/bin/fish
 ---FINALLY---
 cd ~/nixenv/fish
 cp *_prompt.fish ~/.config/fish/functions/.
+cp config.fish ~/.config/fish/.

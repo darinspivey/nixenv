@@ -1,4 +1,5 @@
 atom-ide-ui@0.13.0
+atom-menu-patch-for-catalina@0.3.3
 custom-title@1.0.1
 docblockr@0.13.7
 file-icons@2.1.40

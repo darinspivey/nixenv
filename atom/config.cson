@@ -17,6 +17,8 @@
       "color-tabs"
       "linter"
       "github"
+      "spell-check"
+      "atom-menu-patch-for-catalina"
     ]
     projectHome: "/Users/dspivey/gitlab"
     telemetryConsent: "no"
@@ -63,6 +65,11 @@
       "find-and-replaceDecorationsZIndex": 0
       "highlight-selected": true
       "highlight-selectedDecorationsZIndex": 0
+  "spell-check":
+    addKnownWords: true
+    locales: [
+      "en-US"
+    ]
   "toggle-quotes":
     quoteCharacters: "\"'` "
   "tree-view": {}
