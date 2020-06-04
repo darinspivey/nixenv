@@ -47,15 +47,13 @@ function fish_prompt
   set -g __fish_git_prompt_showstashstate true
   set -g __fish_git_prompt_show_informative_status true 
 
-  echo
-
   # Line 1
   echo -n $white' ╭─' $orange$NODE$white' in '$turquoise(pwd)
   __fish_git_prompt " (%s)"
   echo
 
   # Line 2
-  echo -n $magenta$k_short(fish_default_mode_prompt | tr -d \\n)$white $__fish_prompt_char' ➜ '$normal
+  echo -n $magenta$k_short(fish_mode_prompt | tr -d \\n)$white $__fish_prompt_char' ➜ '$normal
 end
 
 
