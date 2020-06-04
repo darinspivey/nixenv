@@ -12,9 +12,7 @@ rm -rf /tmp/fish-3.0.2
 sudo echo /usr/local/bin/fish >> /etc/shells
 chsh -s /usr/local/bin/fish
 
-# Install oh-my-fish (see README.md)
-
 ---FINALLY---
-cd ~/nixenv/fish
-cp *_prompt.fish ~/.config/fish/functions/.
-cp config.fish ~/.config/fish/.
+cd $HOME/.config/fish
+cp $HOME/nixenv/fish/config.fish .
+ln -s $HOME/nixenv/fish/functions

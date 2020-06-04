@@ -6,7 +6,7 @@ function gitsync --description 'Sync the current branch to be just like origin'
   if read_confirm
     echo 'Bailing out.'
     return
-  end if
+  end
 
   git fetch origin
   git reset --hard origin/$current_branch
