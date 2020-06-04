@@ -79,7 +79,9 @@
   whitespace:
     ensureSingleTrailingNewline: false
     ignoreWhitespaceOnCurrentLine: false
-  "wrap-guide": {}
+  "wrap-guide": {
+    columns: [160]
+  }
 ".js.source":
   editor:
     preferredLineLength: 85
