@@ -1,2 +1,3 @@
 //npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
 @answerbook:registry=https://npm.pkg.github.com/
+//registry.npmjs.org/:_authToken=${NPM_PUBLISH_TOKEN}

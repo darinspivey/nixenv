@@ -7,5 +7,9 @@ function npmrefresh --description 'Blow away npm modules and re-install them'
   echo 'Clearing existing node_modules...'
   rm -rf node_modules
   echo Refreshing node_modules...
-  npm ci
+  if test -f package-lock.json
+    npm ci
+  else
+    npm install
+  end
 end

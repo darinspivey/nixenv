@@ -20,6 +20,7 @@
       "spell-check"
       "atom-menu-patch-for-catalina"
     ]
+    openEmptyEditorOnStart: false
     projectHome: "/Users/dspivey/gitlab"
     telemetryConsent: "no"
     themes: [
@@ -27,13 +28,13 @@
       "ax-monokai-syntax"
     ]
   "custom-title":
-    template: "<%= fileName %><% if (projectPath) { %> - <%= projectPath %><% } %> - Atom <%= atom.getVersion() %>"
+    template: "<%= projectName %><% if (projectPath) { %> - <%= projectPath %><% } %> - Atom <%= atom.getVersion() %>"
   docblockr:
     param_description: false
     return_tag: "@returns"
     spacer_between_sections: "after_description"
   editor:
-    preferredLineLength: 160
+    preferredLineLength: 90
     tabType: "soft"
   "exception-reporting":
     userId: "3756551c-5e83-aa75-14f2-69829ffeb8b0"
@@ -79,13 +80,35 @@
   whitespace:
     ensureSingleTrailingNewline: false
     ignoreWhitespaceOnCurrentLine: false
-  "wrap-guide": {
-    columns: [160]
-  }
-".js.source":
-  editor:
-    preferredLineLength: 85
   "wrap-guide":
     columns: [
-      85
+      90
+    ]
+".gfm.source":
+  editor:
+    preferredLineLength: 80
+  "wrap-guide":
+    columns: [
+      90
+    ]
+".js.source":
+  editor:
+    preferredLineLength: 90
+  "wrap-guide":
+    columns: [
+      90
+    ]
+".json.source":
+  editor:
+    preferredLineLength: 90
+  "wrap-guide":
+    columns: [
+      90
+    ]
+".source.yaml":
+  editor:
+    preferredLineLength: 90
+  "wrap-guide":
+    columns: [
+      90
     ]
