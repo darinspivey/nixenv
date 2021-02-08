@@ -5,7 +5,16 @@ function nb --description 'Create a new branch, nuke node_modules, and npm insta
     return
   end
 
-  git checkout master
-  git pull
-  git checkout -b darinspivey/$name ;and git branch -u origin/master ;and npmrefresh
+  if git ls-remote --exit-code --heads origin refs/heads/main > /dev/null
+    set branch 'main'
+  else if git ls-remote --exit-code --heads origin refs/heads/master > /dev/null
+    set branch 'master'
+  else
+    echo "Neither branch 'master' nor 'main' was found!"
+    return 1
+  end
+
+  git checkout $branch
+  git pull -r
+  git checkout -b darinspivey/$name ;and git branch -u origin/$branch ;and npmrefresh
 end
