@@ -1,14 +1,12 @@
 function gcm --description 'Git checkout master'
-  if git ls-remote --exit-code --heads origin refs/heads/master > /dev/null
-    set branch 'master'
-  else if git ls-remote --exit-code --heads origin refs/heads/main > /dev/null
-    set branch 'main'
-  else
-    echo "Neither branch 'master' nor 'main' was found!"
-    return 1
+  set BRANCH (git_default_branch)
+
+  if test $status -eq 1
+    echo 'Error: Could not determine default branch. Is this a git repo?'
+    return $status
   end
-  
-  git checkout $branch
-  git pull origin $branch -r
+
+  git checkout $BRANCH
+  git pull origin $BRANCH -r
   npmrefresh
 end
