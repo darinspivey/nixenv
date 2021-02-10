@@ -1,11 +1,13 @@
 function grom --description 'Git checkout master, pull, change back to current branch'
-  #set -l current_branch (git branch | grep \* | cut -d ' ' -f2-)
-  #git checkout master
-  #git pull origin master
-  #git checkout $current_branch
+  set branch (git_default_branch)
+
+  if test $status -eq 1
+    echo 'Error: Could not determine default branch. Is this a git repo?'
+    return $status
+  end
+
   echo Fetching changes from origin
   git fetch origin
   echo \nRebasing...
-  git rebase origin/master ;and npmrefresh
+  git rebase origin/$branch ;and npmrefresh
 end
-
