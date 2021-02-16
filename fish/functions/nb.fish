@@ -1,11 +1,11 @@
 function nb --description 'Create a new branch, nuke node_modules, and npm install'
-  set name $argv[1]
+  set -l name $argv[1]
   if not test $name
     echo 'Usage: nb [ticket/identifier]'
     return
   end
 
-  set branch (git_default_branch)
+  set -l branch (git_default_branch)
 
   if test $status -eq 1
     echo 'Error: Could not determine default branch. Is this a git repo?'

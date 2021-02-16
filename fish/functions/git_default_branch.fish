@@ -33,7 +33,7 @@ end
 
 
 function git_project_name_env_var --description 'Analyze the git origin URL to determine its project name'
-  set name (git config remote.origin.url | sed 's/.*\///' | sed 's/\.git//')
+  set -l name (git config remote.origin.url | sed 's/.*\///' | sed 's/\.git//')
   set -g ENV_VAR DEFAULT_BRANCH_(string upper $name | string replace -r -a '[^\\w]+' '_')
 
   if test -z "$ENV_VAR"
